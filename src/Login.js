@@ -1,12 +1,15 @@
 import React from "react";
 import "./css/login.css";
 import { auth, provider } from "./firebase";
+
+const [{ user }, dispatch] = useStateValue();
+
 function Login() {
   const signIn = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        dispatchEvent({
+        dispatch({
           type: "SET_USER",
           user: result.user,
         });
