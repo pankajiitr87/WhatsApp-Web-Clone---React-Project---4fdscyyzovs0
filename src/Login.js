@@ -3,9 +3,11 @@ import "./css/login.css";
 import { auth, provider } from "./firebase";
 import { useStateValue } from './StateProvider';
 
-const [{}, dispatch] = useStateValue();
+
 
 function Login() {
+  const [{}, dispatch] = useStateValue();
+  
   const signIn = () => {
     auth.signInWithPopup(provider).then((result) => {
         dispatch({
