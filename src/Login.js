@@ -2,19 +2,16 @@ import React from "react";
 import "./css/login.css";
 import { auth, provider } from "./firebase";
 
-const [{ user }, dispatch] = useStateValue();
+const [{}, dispatch] = useStateValue();
 
 function Login() {
   const signIn = () => {
-    auth
-      .signInWithPopup(provider)
-      .then((result) => {
+    auth.signInWithPopup(provider).then((result) => {
         dispatch({
           type: "SET_USER",
           user: result.user,
         });
-      })
-      .catch((error) => alert(error));
+      }).catch((error) => alert(error));
   };
   return (
     <div className="login_wrapper">
