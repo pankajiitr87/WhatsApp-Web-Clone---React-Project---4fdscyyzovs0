@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/login.css";
 import { auth, provider } from "./firebase";
+import { useStateValue } from './StateProvider';
 
 const [{}, dispatch] = useStateValue();
 
